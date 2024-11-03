@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Register</h2>
+  <form action="/auth/register" method="POST">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" required />
+    </div>
+    <div class="form-group">
+      <label for="isAdmin">Set as Admin</label>
+      <input
+        type="checkbox"
+        id="isAdmin"
+        name="isAdmin"
+        onclick="onCheck()"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+  <p>Already have an account? <a href="/auth/login">Login here</a></p>
+</div>
+<script>
+  function onCheck() {
+    // Get the checkbox
+    var checkBox = document.getElementById("isAdmin");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      checkBox.setAttribute("value", true);
+      console.log(checkBox.value);
+    } else {
+      checkBox.setAttribute("value", false);
+    }
+  }
+</script>

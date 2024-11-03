@@ -1,0 +1,36 @@
+<h1>Products</h1>
+<a href="/products/create" class="btn btn-primary">Add Product</a>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(product => { %>
+    <tr>
+      <td><%= product.name %></td>
+      <td>$<%= product.price.toFixed(2) %></td>
+      <td><%= product.quantity %></td>
+      <td><%= product.description || 'N/A' %></td>
+      <td>
+        <a href="/products/edit/<%= product.id %>" class="btn btn-warning"
+          >Edit</a
+        >
+        <form
+          action="/products/delete/<%= product.id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

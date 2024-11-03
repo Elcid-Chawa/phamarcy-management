@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <h1>My Amazing Pharmacy</h1>
+
+  <div class="d-flex flex-wrap gap-3">
+    <% products.forEach(product => { %>
+    <div class="card" style="width: 18rem">
+      <img
+        src="<%= 'https://placehold.co/600x400/EEE/31343C?font=montserrat&text=' + encodeURIComponent(product.name) %>"
+        class="card-img-top"
+        alt="<%= product.name %>"
+      />
+
+      <div class="card-body">
+        <h5 class="card-title"><%= product.name %></h5>
+        <p class="card-text"><%= product.description || 'N/A' %></p>
+        <div class="d-flex justify-content-between px-1">
+          <a href="#" class="btn btn-primary">Add to cart</a>
+          <p class="card-text">Price: $<%= product.price.toFixed(2) %></p>
+        </div>
+      </div>
+    </div>
+    <%});%>
+  </div>
+</div>

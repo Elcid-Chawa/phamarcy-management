@@ -1,0 +1,28 @@
+<% if (messages.error && messages.error.length > 0) { %>
+<div id="flash-message" class="alert alert-danger"><%= messages.error %></div>
+<% } %> <% if (messages.success && messages.success.length > 0) { %>
+<div id="flash-message-success" class="alert alert-success">
+  <%= messages.success  %>
+</div>
+<% } %>
+
+<script>
+  // Set a timeout to hide the flash message after 5 seconds
+  setTimeout(() => {
+    const flashMessage = document.getElementById("flash-message");
+    if (flashMessage) {
+      flashMessage.classList.add("fade-out");
+      flashMessage.style.display = "none";
+      setTimeout(() => flashMessage.remove(), 500); // Remove after fade
+    }
+  }, 5000); // 5000 milliseconds = 5 seconds
+
+  setTimeout(() => {
+    const flashMessage = document.getElementById("flash-message-success");
+    if (flashMessage) {
+      flashMessage.classList.add("fade-out");
+      flashMessage.style.display = "none";
+      setTimeout(() => flashMessage.remove(), 500); // Remove after fade
+    }
+  }, 5000); // 5000 milliseconds = 5 seconds
+</script>
